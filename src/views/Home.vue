@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    Hello
+    <img src="images/street-lounge/IMG_1341.jpg" />
   </div>
 </template>
 
@@ -9,3 +9,9 @@ export default {
   name: "home"
 };
 </script>
+
+<style scoped>
+img {
+  max-width: 100%;
+}
+</style>
