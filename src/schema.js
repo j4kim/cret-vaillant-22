@@ -51,7 +51,7 @@ export default {
             "destination": "lounge"
         }
     },
-    "panormas": {
+    "panoramas": {
         "lounge": {
             "ways":{
                 "0": "kitchen",
