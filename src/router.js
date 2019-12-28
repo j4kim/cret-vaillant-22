@@ -22,6 +22,7 @@ export default new Router({
       meta: {
         images: [
           "IMG_1341.jpg",
+          "IMG_1342.jpg",
           "IMG_1343.jpg",
           "IMG_1344.jpg",
           "IMG_1345.jpg",
