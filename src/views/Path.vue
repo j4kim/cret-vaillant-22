@@ -15,9 +15,8 @@ export default {
   },
   created() {
     this.folder = this.$route.name;
-    var config = this.$root.paths[this.folder];
-    this.destination = config.destination;
-    this.images = config.images;
+    this.destination = this.$route.meta.destination;
+    this.images = this.$route.meta.images;
     this.src = "images/" + this.folder + "/" + this.images[0];
   },
   mounted() {
