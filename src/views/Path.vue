@@ -9,12 +9,15 @@ export default {
       folder: "",
       src: "",
       images: [],
-      frame: 0
+      frame: 0,
+      destination: ""
     };
   },
   created() {
     this.folder = this.$route.name;
-    this.images = this.$root.paths[this.folder].images;
+    var config = this.$root.paths[this.folder];
+    this.destination = config.destination;
+    this.images = config.images;
     this.src = "images/" + this.folder + "/" + this.images[0];
   },
   mounted() {
@@ -28,7 +31,7 @@ export default {
         this.frame++;
         setTimeout(this.nextFrame, 100);
       } else {
-        this.$router.replace("lounge");
+        this.$router.replace(this.destination);
       }
     }
   }
