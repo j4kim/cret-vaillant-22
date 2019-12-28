@@ -8,7 +8,7 @@ export default {
     return {
       folder: "",
       src: "",
-      images: [],
+      imageSources: [],
       frame: 0,
       destination: ""
     };
@@ -16,8 +16,6 @@ export default {
   created() {
     this.folder = this.$route.name;
     this.destination = this.$route.meta.destination;
-    this.images = this.$route.meta.images;
-    this.src = "images/" + this.folder + "/" + this.images[0];
   },
   mounted() {
     this.preloadImages().then(this.nextFrame);
@@ -25,28 +23,35 @@ export default {
   methods: {
     preloadImages() {
       return new Promise(resolve => {
-        var loaded = 0;
-        this.images.forEach(filename => {
-          var img = new Image();
+        let start = this.$route.meta.start;
+        let counter = start;
+        let stop = this.$route.meta.stop;
+        for (let i = start; i <= stop; i++) {
+          let img = new Image();
+          let filename = "IMG_" + i + ".jpg";
           img.src = "images/" + this.folder + "/" + filename;
           img
             .decode()
-            .catch(e => {
-              console.warn(filename, e);
+            .then(() => {
+              this.imageSources.push(img.src);
+            })
+            .catch(() => {
+              // the file doesn't exist, do nothing
             })
             .finally(() => {
-              loaded++;
-              if (loaded === this.images.length) {
+              counter++;
+              if (counter === stop) {
+                this.imageSources.sort();
                 resolve();
               }
             });
-        });
+        }
       });
     },
     nextFrame() {
-      var image = this.images[this.frame];
-      if (image) {
-        this.src = "images/" + this.folder + "/" + image;
+      let src = this.imageSources[this.frame];
+      if (src) {
+        this.src = src;
         this.frame++;
         setTimeout(this.nextFrame, 100);
       } else {
