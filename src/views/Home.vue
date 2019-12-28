@@ -1,17 +1,13 @@
 <template>
   <div class="home">
-    <img src="images/street-lounge/IMG_1341.jpg" />
+    <photo src="images/street-lounge/IMG_1341.jpg" />
   </div>
 </template>
 
 <script>
+import Photo from "@/components/Photo";
+
 export default {
-  name: "home"
+  components: { Photo }
 };
 </script>
-
-<style scoped>
-img {
-  max-width: 100%;
-}
-</style>
