@@ -28,7 +28,7 @@ export default {
         this.frame++;
         setTimeout(this.nextFrame, 100);
       } else {
-        console.log("fin");
+        this.$router.replace("lounge");
       }
     }
   }
