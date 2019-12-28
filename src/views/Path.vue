@@ -29,13 +29,13 @@ export default {
         this.images.forEach(filename => {
           var img = new Image();
           img.src = "images/" + this.folder + "/" + filename;
-          img.onload = () => {
+          img.decode().then(() => {
             loaded++;
             console.log(loaded + "/" + this.images.length);
             if (loaded === this.images.length) {
               resolve();
             }
-          };
+          });
         });
       });
     },
