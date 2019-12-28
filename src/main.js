@@ -2,8 +2,9 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import data from "./schema";
+import Photo from "./components/Photo";
 
-Vue.config.productionTip = false;
+Vue.component("photo", Photo);
 
 new Vue({
   router,
