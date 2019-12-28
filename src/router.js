@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
+import Street from "./views/Street.vue";
 import Path from "./views/Path.vue";
 import Panorama from "./views/Panorama.vue";
 
@@ -12,8 +12,8 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "home",
-      component: Home
+      name: "street",
+      component: Street
     },
     {
       path: "/street-lounge",
