@@ -20,9 +20,25 @@ export default {
     this.src = "images/" + this.folder + "/" + this.images[0];
   },
   mounted() {
-    this.nextFrame();
+    this.preloadImages().then(this.nextFrame);
   },
   methods: {
+    preloadImages() {
+      return new Promise(resolve => {
+        var loaded = 0;
+        this.images.forEach(filename => {
+          var img = new Image();
+          img.src = "images/" + this.folder + "/" + filename;
+          img.onload = () => {
+            loaded++;
+            console.log(loaded + "/" + this.images.length);
+            if (loaded === this.images.length) {
+              resolve();
+            }
+          };
+        });
+      });
+    },
     nextFrame() {
       var image = this.images[this.frame];
       if (image) {
