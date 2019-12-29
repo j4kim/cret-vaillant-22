@@ -6,21 +6,22 @@
 export default {
   data() {
     return {
-      folder: "",
       src: "",
       imageSources: [],
       frame: 0,
-      destination: ""
     };
   },
   created() {
-    this.folder = this.$route.name;
-    this.destination = this.$route.meta.destination;
+    this.src = this.getImageSource(this.$route.meta.start);
   },
   mounted() {
     this.preloadImages().then(this.nextFrame);
   },
   methods: {
+    getImageSource(i) {
+      let filename = "IMG_" + i + ".jpg";
+      return "images/" + this.$route.name + "/" + filename;
+    },
     preloadImages() {
       return new Promise(resolve => {
         let start = this.$route.meta.start;
@@ -28,8 +29,7 @@ export default {
         let stop = this.$route.meta.stop;
         for (let i = start; i <= stop; i++) {
           let img = new Image();
-          let filename = "IMG_" + i + ".jpg";
-          img.src = "images/" + this.folder + "/" + filename;
+          img.src = this.getImageSource(i);
           img
             .decode()
             .then(() => {
@@ -55,7 +55,7 @@ export default {
         this.frame++;
         setTimeout(this.nextFrame, 100);
       } else {
-        this.$router.replace(this.destination);
+        this.$router.replace(this.$route.meta.destination);
       }
     }
   }
