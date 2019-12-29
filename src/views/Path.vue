@@ -8,7 +8,7 @@ export default {
     return {
       src: "",
       imageSources: [],
-      frame: 0,
+      frame: 0
     };
   },
   created() {
