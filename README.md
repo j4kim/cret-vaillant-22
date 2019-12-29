@@ -2,4 +2,7 @@
 
 Visite interactive d'un appartement au Crêt-Vaillant 22.
 
-L'application originale, réalisée en 2012, est écrite en Flash. Le but est de la redévelopper en standards web.
+L'application originale, réalisée en 2012, est écrite en Flash. Le but est de la redévelopper en standards du web.
+
+* Version flash: http://cret-vaillant.ch/klinou/
+* Cette version: http://cret-vaillant.ch/22/
