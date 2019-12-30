@@ -1,6 +1,6 @@
 export default class Preloader {
   constructor(route) {
-    route.meta.imageUrls = [];
+    route.meta.images = [];
     this.route = route;
     this.loaded = 0;
     // start:1, stop:3, total:2+3-1=4 (1,2,3,panorama)
@@ -28,7 +28,7 @@ export default class Preloader {
         img
           .decode()
           .then(() => {
-            this.route.meta.imageUrls.push(img.src)
+            this.route.meta.images.push(img);
           })
           .catch(() => {
             // the file doesn't exist, do nothing
@@ -36,7 +36,9 @@ export default class Preloader {
           .finally(() => {
             this.loaded++;
             if (this.loaded >= this.total) {
-              this.route.meta.imageUrls.sort();
+              this.route.meta.images.sort((a,b) => {
+                return a.src.localeCompare(b.src)
+              });
               resolve();
             }
           });

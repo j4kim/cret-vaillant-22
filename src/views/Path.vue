@@ -22,9 +22,9 @@ export default {
       return "images/" + this.$route.name + "/" + filename;
     },
     nextFrame() {
-      let src = this.$route.meta.imageUrls[this.frame];
-      if (src) {
-        this.src = src;
+      let img = this.$route.meta.images[this.frame];
+      if (img) {
+        this.src = img.src;
         this.frame++;
         setTimeout(this.nextFrame, 100);
       } else {
