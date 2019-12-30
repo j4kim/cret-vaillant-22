@@ -3,8 +3,12 @@ export default class Preloader {
     route.meta.imageUrls = [];
     this.route = route;
     this.loaded = 0;
-    this.total = 1 + this.route.meta.stop - this.route.meta.start;
-    this.preload();
+    // start:1, stop:3, total:2+3-1=4 (1,2,3,panorama)
+    this.total = 2 + this.route.meta.stop - this.route.meta.start;
+  }
+
+  preload() {
+    return this.preloadPanorama().then(() => this.preloadPath())
   }
 
   get progress() {
@@ -16,7 +20,7 @@ export default class Preloader {
     return "images/" + this.route.name + "/" + filename;
   }
 
-  preload() {
+  preloadPath() {
     return new Promise(resolve => {
       for (let i = this.route.meta.start; i <= this.route.meta.stop; i++) {
         let img = new Image();
@@ -37,6 +41,17 @@ export default class Preloader {
             }
           });
       }
+    });
+  }
+
+  preloadPanorama() {
+    return new Promise(resolve => {
+      let img = new Image();
+      img.src = "images/panoramas/" + this.route.meta.destination + ".jpg";
+      img.decode().finally(() => {
+        this.loaded++;
+        resolve()
+      })
     });
   }
 }
