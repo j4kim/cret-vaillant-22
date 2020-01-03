@@ -4,9 +4,9 @@
       backgroundImage: 'url(images/panoramas/' + $route.name + '.jpg)',
       height: '500px',
       backgroundSize: 'auto 500px',
-      backgroundPosition: -this.x + 'px'
+      backgroundPosition: -x + 'px'
     }"
-    @click="move"
+    @click="x += 100"
   />
 </template>
 
@@ -14,11 +14,6 @@
 export default {
   data() {
     return { x: 0 };
-  },
-  methods: {
-    move() {
-      this.x += 100;
-    }
   }
 };
 </script>
