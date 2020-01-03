@@ -1,7 +1,7 @@
 <template>
   <div
     :style="{
-      backgroundImage: 'url(images/panoramas/' + $route.name + '.jpg)',
+      backgroundImage: 'url(' + $route.meta.image.src + ')',
       height: '500px',
       backgroundSize: 'auto 500px',
       backgroundPosition: -x + 'px'

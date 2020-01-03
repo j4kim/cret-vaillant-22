@@ -1,10 +1,11 @@
 export default class Preloader {
-  constructor(route) {
-    route.meta.images = [];
-    this.route = route;
+  constructor(router, pathRouteName) {
+    this.pathRoute = router.matcher.match(pathRouteName);
+    this.pathRoute.meta.images = [];
+    this.panoramaRoute = router.matcher.match(this.pathRoute.meta.destination);
     this.loaded = 0;
     // start:1, stop:3, total:2+3-1=4 (1,2,3,panorama)
-    this.total = 2 + this.route.meta.stop - this.route.meta.start;
+    this.total = 2 + this.pathRoute.meta.stop - this.pathRoute.meta.start;
   }
 
   preload() {
@@ -17,18 +18,18 @@ export default class Preloader {
 
   getImageSource(i) {
     let filename = "IMG_" + i + ".jpg";
-    return "images/" + this.route.name + "/" + filename;
+    return "images/" + this.pathRoute.name + "/" + filename;
   }
 
   preloadPath() {
     return new Promise(resolve => {
-      for (let i = this.route.meta.start; i <= this.route.meta.stop; i++) {
+      for (let i = this.pathRoute.meta.start; i <= this.pathRoute.meta.stop; i++) {
         let img = new Image();
         img.src = this.getImageSource(i);
         img
           .decode()
           .then(() => {
-            this.route.meta.images.push(img);
+            this.pathRoute.meta.images.push(img);
           })
           .catch(() => {
             // the file doesn't exist, do nothing
@@ -36,7 +37,7 @@ export default class Preloader {
           .finally(() => {
             this.loaded++;
             if (this.loaded >= this.total) {
-              this.route.meta.images.sort((a, b) => {
+              this.pathRoute.meta.images.sort((a, b) => {
                 return a.src.localeCompare(b.src);
               });
               resolve();
@@ -49,8 +50,10 @@ export default class Preloader {
   preloadPanorama() {
     return new Promise(resolve => {
       let img = new Image();
-      img.src = "images/panoramas/" + this.route.meta.destination + ".jpg";
-      img.decode().finally(() => {
+      img.src = "images/panoramas/" + this.panoramaRoute.name + ".jpg";
+      img.decode().then(() => {
+        this.panoramaRoute.meta.image = img
+      }).finally(() => {
         this.loaded++;
         resolve();
       });

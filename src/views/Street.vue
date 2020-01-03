@@ -17,8 +17,7 @@ export default {
     };
   },
   created() {
-    let route = this.$router.matcher.match("street-lounge");
-    this.preloader = new Preloader(route);
+    this.preloader = new Preloader(this.$router, "street-lounge");
     this.preloader.preload().then(() => {
       this.ready = true;
     });
