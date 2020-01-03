@@ -8,11 +8,11 @@ export default class Preloader {
   }
 
   preload() {
-    return this.preloadPanorama().then(() => this.preloadPath())
+    return this.preloadPanorama().then(() => this.preloadPath());
   }
 
   get progress() {
-    return Math.round(100 * this.loaded / this.total)
+    return Math.round((100 * this.loaded) / this.total);
   }
 
   getImageSource(i) {
@@ -36,8 +36,8 @@ export default class Preloader {
           .finally(() => {
             this.loaded++;
             if (this.loaded >= this.total) {
-              this.route.meta.images.sort((a,b) => {
-                return a.src.localeCompare(b.src)
+              this.route.meta.images.sort((a, b) => {
+                return a.src.localeCompare(b.src);
               });
               resolve();
             }
@@ -52,8 +52,8 @@ export default class Preloader {
       img.src = "images/panoramas/" + this.route.meta.destination + ".jpg";
       img.decode().finally(() => {
         this.loaded++;
-        resolve()
-      })
+        resolve();
+      });
     });
   }
 }

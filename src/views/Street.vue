@@ -17,11 +17,11 @@ export default {
     };
   },
   created() {
-    let route = this.$router.matcher.match("street-lounge")
+    let route = this.$router.matcher.match("street-lounge");
     this.preloader = new Preloader(route);
     this.preloader.preload().then(() => {
-      this.ready = true
-    })
+      this.ready = true;
+    });
   }
 };
 </script>
