@@ -1,7 +1,7 @@
 export function preloadPanorama(panoramaRoute) {
   return new Promise((resolve, reject) => {
     let img = new Image();
-    img.src = "images/panoramass/" + panoramaRoute.name + ".jpg";
+    img.src = "images/panoramas/" + panoramaRoute.name + ".jpg";
     img.onload = img.onerror = () => {
       if (img.height) {
         panoramaRoute.meta.image = img;
