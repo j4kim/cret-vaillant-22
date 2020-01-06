@@ -1,3 +1,15 @@
+export function preloadPanorama(panoramaRoute) {
+  return new Promise(resolve => {
+    let img = new Image();
+    img.src = "images/panoramas/" + panoramaRoute.name + ".jpg";
+    img.decode().then(() => {
+      panoramaRoute.meta.image = img
+    }).finally(() => {
+      resolve(img);
+    });
+  });
+}
+
 export default class Preloader {
   constructor(router, pathRouteName) {
     this.pathRoute = router.matcher.match(pathRouteName);
@@ -9,7 +21,10 @@ export default class Preloader {
   }
 
   preload() {
-    return this.preloadPanorama().then(() => this.preloadPath());
+    return preloadPanorama(this.panoramaRoute).then(() => {
+      this.loaded++;
+      return this.preloadPath();
+    });
   }
 
   get progress() {
@@ -40,23 +55,10 @@ export default class Preloader {
               this.pathRoute.meta.images.sort((a, b) => {
                 return a.src.localeCompare(b.src);
               });
-              resolve();
+              resolve(this.loaded);
             }
           });
       }
-    });
-  }
-
-  preloadPanorama() {
-    return new Promise(resolve => {
-      let img = new Image();
-      img.src = "images/panoramas/" + this.panoramaRoute.name + ".jpg";
-      img.decode().then(() => {
-        this.panoramaRoute.meta.image = img
-      }).finally(() => {
-        this.loaded++;
-        resolve();
-      });
     });
   }
 }
