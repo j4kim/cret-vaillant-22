@@ -1,12 +1,15 @@
 export function preloadPanorama(panoramaRoute) {
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     let img = new Image();
-    img.src = "images/panoramas/" + panoramaRoute.name + ".jpg";
-    img.decode().then(() => {
-      panoramaRoute.meta.image = img
-    }).finally(() => {
-      resolve(img);
-    });
+    img.src = "images/panoramass/" + panoramaRoute.name + ".jpg";
+    img.onload = img.onerror = () => {
+      if (img.height) {
+        panoramaRoute.meta.image = img;
+        resolve(img);
+      } else {
+        reject("Unable to load image");
+      }
+    }
   });
 }
 
@@ -21,7 +24,7 @@ export default class Preloader {
   }
 
   preload() {
-    return preloadPanorama(this.panoramaRoute).then(() => {
+    return preloadPanorama(this.panoramaRoute).finally(() => {
       this.loaded++;
       return this.preloadPath();
     });
@@ -41,23 +44,19 @@ export default class Preloader {
       for (let i = this.pathRoute.meta.start; i <= this.pathRoute.meta.stop; i++) {
         let img = new Image();
         img.src = this.getImageSource(i);
-        img
-          .decode()
-          .then(() => {
+        img.onload = img.onerror = () => {
+          if (img.height) {
+            // no error
             this.pathRoute.meta.images.push(img);
-          })
-          .catch(() => {
-            // the file doesn't exist, do nothing
-          })
-          .finally(() => {
-            this.loaded++;
-            if (this.loaded >= this.total) {
-              this.pathRoute.meta.images.sort((a, b) => {
-                return a.src.localeCompare(b.src);
-              });
-              resolve(this.loaded);
-            }
-          });
+          }
+          this.loaded++;
+          if (this.loaded >= this.total) {
+            this.pathRoute.meta.images.sort((a, b) => {
+              return a.src.localeCompare(b.src);
+            });
+            resolve(this.loaded);
+          }
+        }
       }
     });
   }
