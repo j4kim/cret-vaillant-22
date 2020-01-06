@@ -39,7 +39,7 @@ html {
     max-width: 1400px;
     margin: auto;
     padding: 40px;
-    columns:2;
+    columns: 400px;
     white-space: pre-line;
   }
   .interactive-view{
