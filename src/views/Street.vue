@@ -1,8 +1,10 @@
 <template>
   <div @click="$router.push('street-lounge')">
     <photo src="images/street-lounge/IMG_1341.jpg" />
-    <span v-if="ready">Ready</span>
-    <span v-else>{{ preloader.progress }}%</span>
+    <div>
+      <span v-if="ready">Ready</span>
+      <span v-else>{{ preloader.progress }}%</span>
+    </div>
   </div>
 </template>
 
