@@ -1,5 +1,7 @@
 <template>
-  <photo :src="src" />
+  <div @click="skip = true">
+    <photo :src="src" />
+  </div>
 </template>
 
 <script>
@@ -7,7 +9,8 @@ export default {
   data() {
     return {
       src: "",
-      frame: 0
+      frame: 0,
+      skip: false
     };
   },
   created() {
@@ -23,7 +26,7 @@ export default {
     },
     nextFrame() {
       let img = this.$route.meta.images[this.frame];
-      if (img) {
+      if (!this.skip && img) {
         this.src = img.src;
         this.frame++;
         setTimeout(this.nextFrame, 100);
