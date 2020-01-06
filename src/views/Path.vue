@@ -31,6 +31,13 @@ export default {
         this.$router.replace(this.$route.meta.destination);
       }
     }
+  },
+  beforeRouteEnter(to, from, next) {
+    if (to.meta.images) {
+      next();
+    } else {
+      next(from)
+    }
   }
 };
 </script>

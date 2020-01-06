@@ -23,14 +23,6 @@ export default new Router({
         start: 1341,
         stop: 1398,
         destination: "lounge"
-      },
-      beforeEnter(to, from, next) {
-        if (to.meta.images) {
-          next();
-        } else {
-          console.warn("Path images not yet preloaded");
-          next('/');
-        }
       }
     },
     {
@@ -41,14 +33,6 @@ export default new Router({
         ways: {
           "0": "kitchen",
           "3000": "bedroom"
-        }
-      },
-      beforeEnter(to, from, next) {
-        if (to.meta.image) {
-          next();
-        } else {
-          console.warn("Panorma image not yet preloaded");
-          next('/');
         }
       }
     }
