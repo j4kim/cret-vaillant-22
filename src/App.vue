@@ -58,9 +58,17 @@ html {
   }
   .welcome-content {
     h1 {
-      font-size: 5rem;
-      line-height: 5.5rem;
       margin: 0 auto;
+      font-size: 3rem;
+      line-height: 3.5rem;
+      @media screen and (min-width: 320px) {
+        font-size: 4rem;
+        line-height: 4.5rem;
+      }
+      @media screen and (min-width: 500px) {
+        font-size: 5rem;
+        line-height: 5.5rem;
+      }
     }
     max-width: 1400px;
     margin: auto;
@@ -74,6 +82,7 @@ html {
     font-size: 1.2rem;
     div {
       padding: 10px;
+      text-align: center;
       a {
         text-decoration: none;
         color: #2c3e50;
