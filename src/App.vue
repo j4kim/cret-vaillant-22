@@ -121,6 +121,7 @@ html {
   nav {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
     font-size: 1.2rem;
     div {
       padding: 10px;
