@@ -5,7 +5,8 @@
         backgroundImage: 'url(' + $route.meta.image.src + ')',
         height: '100%',
         backgroundSize: 'auto 100%',
-        backgroundPosition: 'calc(50% - ' + x + 'px) center'
+        backgroundPosition: 'calc(50% - ' + x + 'px) center',
+        userSelect: 'none'
       }"
       @click="x += 100"
     />
