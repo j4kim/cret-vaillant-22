@@ -41,22 +41,22 @@ export default new Router({
     {
       path: "/bedroom",
       name: "bedroom",
-      label: "Chambre à coucher",
+      label: "Chambre à coucher"
     },
     {
       path: "/kitchen",
       name: "kitchen",
-      label: "Cuisine",
+      label: "Cuisine"
     },
     {
       path: "/bathroom",
       name: "bathroom",
-      label: "Salle de bain",
+      label: "Salle de bain"
     },
     {
       path: "/garden",
       name: "garden",
-      label: "Jardin",
+      label: "Jardin"
     }
   ]
 });

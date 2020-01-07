@@ -9,7 +9,7 @@ export function preloadPanorama(panoramaRoute) {
       } else {
         reject("Unable to load image");
       }
-    }
+    };
   });
 }
 
@@ -41,7 +41,11 @@ export default class Preloader {
 
   preloadPath() {
     return new Promise(resolve => {
-      for (let i = this.pathRoute.meta.start; i <= this.pathRoute.meta.stop; i++) {
+      for (
+        let i = this.pathRoute.meta.start;
+        i <= this.pathRoute.meta.stop;
+        i++
+      ) {
         let img = new Image();
         img.src = this.getImageSource(i);
         img.onload = img.onerror = () => {
@@ -56,7 +60,7 @@ export default class Preloader {
             });
             resolve(this.loaded);
           }
-        }
+        };
       }
     });
   }

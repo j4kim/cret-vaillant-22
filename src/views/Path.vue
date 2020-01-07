@@ -39,7 +39,7 @@ export default {
     if (to.meta.images) {
       next();
     } else {
-      next(from)
+      next(from);
     }
   }
 };

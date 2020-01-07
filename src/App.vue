@@ -23,7 +23,7 @@
         :class="$route.name === page.name ? 'active' : ''"
       >
         <router-link :to="page.name">
-          {{page.label}}
+          {{ page.label }}
         </router-link>
       </div>
     </nav>
@@ -35,14 +35,14 @@
 export default {
   computed: {
     menu() {
-      return this.$router.options.routes.filter(r => r.label)
+      return this.$router.options.routes.filter(r => r.label);
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Enriqueta:400,700|Nunito+Sans:300,300i,400,400i,600,600i&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Enriqueta:400,700|Nunito+Sans:300,300i,400,400i,600,600i&display=swap");
 body,
 html {
   margin: 0;
@@ -53,11 +53,11 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  .title{
-    font-family: 'Enriqueta', serif;
+  .title {
+    font-family: "Enriqueta", serif;
   }
-  .welcome-content{
-    h1{
+  .welcome-content {
+    h1 {
       font-size: 5rem;
       line-height: 5.5rem;
       margin: 0 auto;
@@ -68,11 +68,11 @@ html {
     columns: 400px;
     white-space: pre-line;
   }
-  .interactive-view{
+  .interactive-view {
     height: 66.66vw;
     max-height: 600px;
     text-align: center;
-    background-color:#292d31;
+    background-color: #292d31;
   }
 }
 </style>
