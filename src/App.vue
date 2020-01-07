@@ -16,7 +16,7 @@
         Il se trouve à 5 min du centre du Locle, à 10 min de la gare, des commerces locaux et des arrêts de bus. 
       </p>
     </div>
-    <nav>
+    <nav class="title">
       <div
         v-for="page in menu"
         :key="page.name"
@@ -67,6 +67,22 @@ html {
     padding: 40px;
     columns: 400px;
     white-space: pre-line;
+  }
+  nav {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 1.2rem;
+    div {
+      padding: 10px;
+      a {
+        text-decoration: none;
+        color: #2c3e50;
+      }
+      &.active {
+        text-decoration: underline;
+        font-weight: bold;
+      }
+    }
   }
   .interactive-view {
     height: 66.66vw;
