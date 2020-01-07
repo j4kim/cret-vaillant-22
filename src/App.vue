@@ -22,6 +22,10 @@
         <div v-html="view.content" />
       </div>
     </div>
+    <div class="content contact">
+      <h2 class="title">Contact</h2>
+      <div v-html="contact.content" />
+    </div>
   </div>
 </template>
 
