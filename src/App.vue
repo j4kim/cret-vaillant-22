@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div class="content">
-      <h1 class="title">{{welcome.title}}</h1>
-      <div v-html="welcome.content"/>
+      <h1 class="title">{{ welcome.title }}</h1>
+      <div v-html="welcome.content" />
     </div>
     <nav class="title">
       <div
@@ -19,7 +19,7 @@
     <div class="dark">
       <div class="content">
         <h2 class="title">{{ view.title }}</h2>
-        <div v-html="view.content"/>
+        <div v-html="view.content" />
       </div>
     </div>
   </div>
@@ -33,29 +33,29 @@ export default {
     return {
       views: [],
       welcome: {},
-      contact: {},
-    }
+      contact: {}
+    };
   },
   methods: {
     fetch(uri) {
       return get(process.env.VUE_APP_API + uri, {
-          params: { token: process.env.VUE_APP_TOKEN }
-        }).then(result => {
-          return result.data
-        })
+        params: { token: process.env.VUE_APP_TOKEN }
+      }).then(result => {
+        return result.data;
+      });
     },
     fetchSingleton(singleton) {
       return this.fetch("singletons/get/" + singleton).then(data => {
-        this[singleton] = data
-      })
+        this[singleton] = data;
+      });
     }
   },
   created() {
     this.fetchSingleton("welcome");
     this.fetchSingleton("contact");
     this.fetch("collections/get/views").then(data => {
-      this.views = data.entries
-    })
+      this.views = data.entries;
+    });
   },
   computed: {
     menu() {
@@ -63,7 +63,7 @@ export default {
     },
     view() {
       let view = this.views.find(v => v.name === this.$route.name);
-      return view || {}
+      return view || {};
     }
   }
 };
@@ -85,7 +85,8 @@ html {
     font-family: "Enriqueta", serif;
   }
   .content {
-    h1, h2 {
+    h1,
+    h2 {
       margin: 0 auto;
     }
     h1 {
@@ -101,7 +102,7 @@ html {
         line-height: 5.5rem;
       }
     }
-    h2{
+    h2 {
       font-size: 2rem;
     }
     max-width: 1400px;
