@@ -6,12 +6,12 @@
     </div>
     <nav class="title">
       <div
-        v-for="page in menu"
-        :key="page.name"
-        :class="$route.name === page.name ? 'active' : ''"
+        v-for="view in views"
+        :key="view.name"
+        :class="$route.name === view.name ? 'active' : ''"
       >
-        <router-link :to="page.name">
-          {{ page.label }}
+        <router-link :to="view.name">
+          {{ view.label }}
         </router-link>
       </div>
     </nav>
@@ -62,12 +62,8 @@ export default {
     });
   },
   computed: {
-    menu() {
-      return this.$router.options.routes.filter(r => r.label);
-    },
     view() {
-      let view = this.views.find(v => v.name === this.$route.name);
-      return view || {};
+      return this.views.find(v => v.name === this.$route.name) || {};
     }
   }
 };

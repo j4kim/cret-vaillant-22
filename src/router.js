@@ -14,7 +14,6 @@ export default new Router({
     {
       path: "/street",
       name: "street",
-      label: "Rue",
       component: Street
     },
     {
@@ -30,7 +29,6 @@ export default new Router({
     {
       path: "/lounge",
       name: "lounge",
-      label: "Séjour",
       component: Panorama,
       meta: {
         ways: {
@@ -41,23 +39,19 @@ export default new Router({
     },
     {
       path: "/bedroom",
-      name: "bedroom",
-      label: "Chambre à coucher"
+      name: "bedroom"
     },
     {
       path: "/kitchen",
-      name: "kitchen",
-      label: "Cuisine"
+      name: "kitchen"
     },
     {
       path: "/bathroom",
-      name: "bathroom",
-      label: "Salle de bain"
+      name: "bathroom"
     },
     {
       path: "/garden",
-      name: "garden",
-      label: "Jardin"
+      name: "garden"
     }
   ]
 });
