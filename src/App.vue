@@ -1,20 +1,16 @@
 <template>
   <div id="app">
-    <div class="welcome-content">
+    <div class="content">
       <h1 class="title">Bienvenue au Crêt-Vaillant&nbsp;22</h1>
-      <p>
-        Nous nous réjouissons de vous accueillir et de vous héberger au Locle, la mère commune des Montagnes neuchâteloises, à 1'000m d'altitude, dans la région qui a donné naissance à l’horlogerie.
+      <p>Nous nous réjouissons de vous accueillir et de vous héberger au Locle, la mère commune des Montagnes neuchâteloises, à 1'000m d'altitude, dans la région qui a donné naissance à l’horlogerie.
 
-        Le K-linou est un appartement meublé de 55 m2 tout confort se trouvant au rez-de-chaussée d’un immeuble du 18ème siècle situé au Crêt-Vaillant 22. Le Crêt-Vaillant est l’une des plus anciennes rues historiques du Locle, reconnue dans le patrimoinse de l’UNESCO.
+        Le K-linou est un appartement meublé de 55 m2 tout confort se trouvant au rez-de-chaussée d’un immeuble du 18ème siècle situé au Crêt-Vaillant 22.
 
-        Ainsi, dans l’une des maisons du quartier a vécu le conteur et poète danois Hans Christian Andersen, célèbre pour ses nouvelles et ses contes de fées. D’un autre est issue la révolution neuchâteloise de 1848. 
-
-        Cette rue est aussi connue pour sa convivialité et ses animations, parmi lesquelles la fête du Crêt-Vaillant, la salle de spectacles Le Cellier, son Groupement des habitants de quartier.
-
-        Le K-linou se compose de deux pièces, d’une cuisine, d’une salle-de-bains et d’un WC séparé. Nos hôtes bénéficient également de l’accès au WIFI, d’une place de parc privée et d’un grand jardin, situé derrière l’immeuble.
+        L'appartement se compose de deux pièces, d’une cuisine, d’une salle de bains et d’un WC séparé. Nos hôtes bénéficient également de l’accès au WIFI, d’une place de parc privée et d’un grand jardin, situé derrière l’immeuble.
 
         Il se trouve à 5 min du centre du Locle, à 10 min de la gare, des commerces locaux et des arrêts de bus. 
-      </p>
+        <hr>
+        Ce site vous propose une visite interactive du K-linou. Utilisez les flèches pour vous déplacer et trouvez plus d'informations sous l'image.</p>
     </div>
     <nav class="title">
       <div
@@ -28,6 +24,15 @@
       </div>
     </nav>
     <router-view class="interactive-view" />
+    <div class="content dark">
+      <h2 class="title">Rue</h2>
+      <p>Le Crêt-Vaillant est l’une des plus anciennes rues historiques du Locle, reconnue dans le patrimoinse de l’UNESCO.
+
+        Ainsi, dans l’une des maisons du quartier a vécu le conteur et poète danois Hans Christian Andersen, célèbre pour ses nouvelles et ses contes de fées. D’un autre est issue la révolution neuchâteloise de 1848. 
+
+        Cette rue est aussi connue pour sa convivialité et ses animations, parmi lesquelles la fête du Crêt-Vaillant, la salle de spectacles Le Cellier, son Groupement des habitants de quartier.
+      </p>
+    </div>
   </div>
 </template>
 
@@ -56,11 +61,14 @@ html {
   .title {
     font-family: "Enriqueta", serif;
   }
-  .welcome-content {
-    h1 {
+  .content {
+    h1, h2 {
       margin: 0 auto;
+    }
+    h1 {
       font-size: 3rem;
       line-height: 3.5rem;
+      break-inside: avoid;
       @media screen and (min-width: 320px) {
         font-size: 4rem;
         line-height: 4.5rem;
@@ -70,11 +78,18 @@ html {
         line-height: 5.5rem;
       }
     }
+    h2{
+      font-size: 2rem;
+    }
     max-width: 1400px;
     margin: auto;
     padding: 40px;
     columns: 400px;
     white-space: pre-line;
+  }
+  .dark {
+    background-color: #515354;
+    color: white;
   }
   nav {
     display: flex;
