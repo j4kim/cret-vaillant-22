@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="welcome-content">
-      <h1>Bienvenue au Crêt-Vaillant&nbsp;22</h1>
+      <h1 class="title">Bienvenue au Crêt-Vaillant&nbsp;22</h1>
       <p>
         Nous nous réjouissons de vous accueillir et de vous héberger au Locle, la mère commune des Montagnes neuchâteloises, à 1'000m d'altitude, dans la région qui a donné naissance à l’horlogerie.
 
@@ -21,19 +21,24 @@
 </template>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css?family=Enriqueta:400,700|Nunito+Sans:300,300i,400,400i,600,600i&display=swap');
 body,
 html {
   margin: 0;
   padding: 0;
 }
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: "Avenir", "Nunito Sans", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  .title{
+    font-family: 'Enriqueta', serif;
+  }
   .welcome-content{
     h1{
-      font-size: 4rem;
+      font-size: 5rem;
+      line-height: 5.5rem;
       margin: 0 auto;
     }
     max-width: 1400px;
