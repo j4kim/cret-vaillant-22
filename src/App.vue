@@ -16,9 +16,30 @@
         Il se trouve à 5 min du centre du Locle, à 10 min de la gare, des commerces locaux et des arrêts de bus. 
       </p>
     </div>
+    <nav>
+      <div
+        v-for="page in menu"
+        :key="page.name"
+        :class="$route.name === page.name ? 'active' : ''"
+      >
+        <router-link :to="page.name">
+          {{page.label}}
+        </router-link>
+      </div>
+    </nav>
     <router-view class="interactive-view" />
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    menu() {
+      return this.$router.options.routes.filter(r => r.label)
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Enriqueta:400,700|Nunito+Sans:300,300i,400,400i,600,600i&display=swap');

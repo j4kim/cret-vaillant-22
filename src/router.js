@@ -13,6 +13,7 @@ export default new Router({
     {
       path: "/",
       name: "street",
+      label: "Rue",
       component: Street
     },
     {
@@ -28,6 +29,7 @@ export default new Router({
     {
       path: "/lounge",
       name: "lounge",
+      label: "Séjour",
       component: Panorama,
       meta: {
         ways: {
@@ -35,6 +37,26 @@ export default new Router({
           "3000": "bedroom"
         }
       }
+    },
+    {
+      path: "/bedroom",
+      name: "bedroom",
+      label: "Chambre à coucher",
+    },
+    {
+      path: "/kitchen",
+      name: "kitchen",
+      label: "Cuisine",
+    },
+    {
+      path: "/bathroom",
+      name: "bathroom",
+      label: "Salle de bain",
+    },
+    {
+      path: "/garden",
+      name: "garden",
+      label: "Jardin",
     }
   ]
 });
