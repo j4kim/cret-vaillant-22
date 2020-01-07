@@ -24,14 +24,16 @@
       </div>
     </nav>
     <router-view class="interactive-view" />
-    <div class="content dark">
-      <h2 class="title">Rue</h2>
-      <p>Le Crêt-Vaillant est l’une des plus anciennes rues historiques du Locle, reconnue dans le patrimoinse de l’UNESCO.
+    <div class="dark">
+      <div class="content">
+        <h2 class="title">Rue</h2>
+        <p>Le Crêt-Vaillant est l’une des plus anciennes rues historiques du Locle, reconnue dans le patrimoinse de l’UNESCO.
 
-        Ainsi, dans l’une des maisons du quartier a vécu le conteur et poète danois Hans Christian Andersen, célèbre pour ses nouvelles et ses contes de fées. D’un autre est issue la révolution neuchâteloise de 1848. 
+          Ainsi, dans l’une des maisons du quartier a vécu le conteur et poète danois Hans Christian Andersen, célèbre pour ses nouvelles et ses contes de fées. D’un autre est issue la révolution neuchâteloise de 1848. 
 
-        Cette rue est aussi connue pour sa convivialité et ses animations, parmi lesquelles la fête du Crêt-Vaillant, la salle de spectacles Le Cellier, son Groupement des habitants de quartier.
-      </p>
+          Cette rue est aussi connue pour sa convivialité et ses animations, parmi lesquelles la fête du Crêt-Vaillant, la salle de spectacles Le Cellier, son Groupement des habitants de quartier.
+        </p>
+      </div>
     </div>
   </div>
 </template>
