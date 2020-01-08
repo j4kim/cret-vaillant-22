@@ -42,9 +42,7 @@ export default {
   },
   methods: {
     fetch(uri) {
-      return get(process.env.VUE_APP_API + uri, {
-        params: { token: process.env.VUE_APP_TOKEN }
-      }).then(result => {
+      return get(process.env.VUE_APP_API + uri).then(result => {
         return result.data;
       });
     },
