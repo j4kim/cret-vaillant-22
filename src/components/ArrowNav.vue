@@ -11,7 +11,7 @@
         left: way.position + 'px',
         color: 'white',
         cursor: way.preloader.ready ? 'pointer': 'auto',
-        width: '150px'
+        width: '200px'
       }">
       <svg width="50" height="50">
         <linearGradient id="grad">
