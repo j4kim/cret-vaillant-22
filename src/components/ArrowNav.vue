@@ -7,7 +7,7 @@
       :style="{
         position: 'absolute',
         bottom: '10px',
-        left: 'calc(50% + ' + (offset + way.position - 100) + 'px)',
+        left: 'calc(50% + ' + (offset + (scale * way.position) - 100) + 'px)',
         color: 'white',
         cursor: way.preloader.ready ? 'pointer': 'auto',
         width: '200px'
@@ -28,6 +28,6 @@
 
 <script>
 export default {
-  props: ['ways', 'offset']
+  props: ['ways', 'offset', 'scale']
 }
 </script>

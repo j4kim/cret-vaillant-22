@@ -10,7 +10,7 @@
       }"
       @click="x += 100"
     />
-    <arrow-nav :ways="ways" :offset="-x" />
+    <arrow-nav :ways="ways" :offset="-x" :scale="scale" />
   </div>
 </template>
 
@@ -21,7 +21,7 @@ import ArrowNav from "@/components/ArrowNav.vue";
 export default {
   components: { ArrowNav },
   data() {
-    return { x: 0, ways: [] };
+    return { x: 0, ways: [], scale: 1 };
   },
   beforeRouteEnter(to, from, next) {
     if (to.meta.image) {
@@ -37,6 +37,15 @@ export default {
       Object.assign(way, {path, preloader });
       this.ways.push(way);
     });
+  },
+  mounted() {
+    this.computeScale();
+    window.onresize = this.computeScale;
+  },
+  methods: {
+    computeScale() {
+      this.scale = this.$el.clientHeight / this.$route.meta.image.naturalHeight;
+    }
   }
 };
 </script>
