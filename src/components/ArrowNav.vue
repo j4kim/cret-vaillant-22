@@ -28,6 +28,16 @@
 
 <script>
 export default {
-  props: ['ways', 'offset', 'scale']
+  props: {
+    ways: Array,
+    offset: {
+      type: Number,
+      default: 0
+    },
+    scale: {
+      type: Number,
+      default: 1
+    }
+  }
 }
 </script>
