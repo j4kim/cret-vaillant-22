@@ -6,7 +6,8 @@
       @click="way.preloader.ready ? $router.push(way.path) : undefined"
       :style="{
         position: 'absolute',
-        bottom: '10px',
+        height: '100px',
+        bottom: 0,
         left: 'calc(50% + ' + (offset + (scale * way.position) - 100) + 'px)',
         color: 'white',
         cursor: way.preloader.ready ? 'pointer': 'auto',
