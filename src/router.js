@@ -31,10 +31,18 @@ export default new Router({
       name: "lounge",
       component: Panorama,
       meta: {
-        ways: {
-          "0": "kitchen",
-          "3000": "bedroom"
-        }
+        ways: [
+          {
+            position: 550,
+            destination: "bedroom",
+            label: "Aller dans la chambre"
+          },
+          {
+            position: 1400,
+            destination: "kitchen",
+            label: "Aller à la cuisine"
+          }
+        ]
       }
     },
     {
