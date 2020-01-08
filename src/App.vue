@@ -135,6 +135,7 @@ html {
     max-height: 600px;
     text-align: center;
     background-color: #292d31;
+    position: relative;
   }
 }
 </style>

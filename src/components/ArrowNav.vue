@@ -1,5 +1,5 @@
 <template>
-  <div style="position:relative">
+  <div>
     <div
       v-for="way in ways"
       :key="way.path"
