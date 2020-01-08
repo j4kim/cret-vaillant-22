@@ -136,6 +136,8 @@ html {
     text-align: center;
     background-color: #292d31;
     position: relative;
+    max-width: 100vh;
+    overflow: hidden;
   }
 }
 </style>
