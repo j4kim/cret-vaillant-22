@@ -38,7 +38,7 @@ export default new Router({
             label: "Aller dans la chambre"
           },
           {
-            position: 1400,
+            position: 1550,
             destination: "kitchen",
             label: "Aller à la cuisine"
           }

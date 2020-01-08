@@ -1,14 +1,13 @@
 <template>
-  <div>
+  <div style="position:relative">
     <div
       v-for="way in ways"
       :key="way.path"
       @click="way.preloader.ready ? $router.push(way.path) : undefined"
       :style="{
-        position: 'relative',
-        bottom: '100px',
-        margin: 'auto',
-        left: offset + way.position + 'px',
+        position: 'absolute',
+        bottom: '10px',
+        left: 'calc(50% + ' + (offset + way.position - 100) + 'px)',
         color: 'white',
         cursor: way.preloader.ready ? 'pointer': 'auto',
         width: '200px'
