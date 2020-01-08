@@ -33,7 +33,7 @@ export default new Router({
       meta: {
         ways: [
           {
-            position: 550,
+            position: 600,
             destination: "bedroom",
             label: "Aller dans la chambre"
           },
@@ -46,12 +46,44 @@ export default new Router({
       }
     },
     {
+      path: "/lounge-bedroom",
+      name: "lounge-bedroom",
+      component: Path,
+      meta: {
+        start: 1478,
+        stop: 1501,
+        destination: "bedroom"
+      }
+    },
+    {
+      path: "/lounge-kitchen",
+      name: "lounge-kitchen",
+      component: Path,
+      meta: {
+        start: 1614,
+        stop: 1626,
+        destination: "kitchen"
+      }
+    },
+    {
       path: "/bedroom",
-      name: "bedroom"
+      name: "bedroom",
+      component: Panorama
+    },
+    {
+      path: "/bedroom-kitchen",
+      name: "bedroom-kitchen",
+      component: Path,
+      meta: {
+        start: 1542,
+        stop: 1561,
+        destination: "kitchen"
+      }
     },
     {
       path: "/kitchen",
-      name: "kitchen"
+      name: "kitchen",
+      component: Panorama
     },
     {
       path: "/bathroom",
