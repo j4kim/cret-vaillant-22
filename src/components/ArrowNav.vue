@@ -15,8 +15,8 @@
       }">
       <svg width="50" height="50">
         <linearGradient id="grad">
-          <stop :offset="way.preloader.progress + '%'" stop-color="#fffc"/>
-          <stop :offset="way.preloader.progress + '%'" stop-color="#fff4"/>
+          <stop :offset="way.preloader.progress + '%'" stop-color="#fffd"/>
+          <stop :offset="way.preloader.progress + '%'" stop-color="#fff6"/>
         </linearGradient>
         <polygon x="100px" points="0,50 25,15 50,50" fill="url(#grad)"/>
       </svg>
