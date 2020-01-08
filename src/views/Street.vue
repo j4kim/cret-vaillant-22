@@ -4,30 +4,25 @@
     <arrow-nav :ways="[{
       position: 0,
       path: 'street-lounge',
-      preloader,
       label: 'Commencer la visite',
-      ready
+      preloader
     }]" />
   </div>
 </template>
 
 <script>
 import Preloader from "@/Preloader.js";
-import ArrowNav from "@/components/ArrowNav.vue"
+import ArrowNav from "@/components/ArrowNav.vue";
 
 export default {
   components: { ArrowNav },
   data() {
     return {
-      preloader: {},
-      ready: false
+      preloader: {}
     };
   },
   created() {
     this.preloader = new Preloader(this.$router, "street-lounge");
-    this.preloader.preload().then(() => {
-      this.ready = true;
-    });
   }
 };
 </script>

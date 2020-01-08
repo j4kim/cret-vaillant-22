@@ -3,14 +3,14 @@
     <div
       v-for="way in ways"
       :key="way.path"
-      @click="way.ready ? $router.push(way.path) : undefined"
+      @click="way.preloader.ready ? $router.push(way.path) : undefined"
       :style="{
         position: 'relative',
         bottom: '100px',
         margin: 'auto',
         left: way.position + 'px',
         color: 'white',
-        cursor: way.ready ? 'pointer': 'auto',
+        cursor: way.preloader.ready ? 'pointer': 'auto',
         width: '150px'
       }">
       <svg width="50" height="50">
@@ -20,7 +20,7 @@
         </linearGradient>
         <polygon x="100px" points="0,50 25,15 50,50" fill="url(#grad)"/>
       </svg>
-      <div v-if="way.ready">
+      <div v-if="way.preloader.ready">
         {{ way.label }}
       </div>
     </div>

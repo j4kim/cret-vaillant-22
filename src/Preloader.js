@@ -19,14 +19,18 @@ export default class Preloader {
     this.pathRoute.meta.images = [];
     this.panoramaRoute = router.matcher.match(this.pathRoute.meta.destination);
     this.loaded = 0;
+    this.ready = false;
     // start:1, stop:3, total:2+3-1=4 (1,2,3,panorama)
     this.total = 2 + this.pathRoute.meta.stop - this.pathRoute.meta.start;
+    this.preload();
   }
 
   preload() {
     return preloadPanorama(this.panoramaRoute).finally(() => {
       this.loaded++;
       return this.preloadPath();
+    }).then(() => {
+      this.ready = true;
     });
   }
 
