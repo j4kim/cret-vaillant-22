@@ -10,15 +10,18 @@
       }"
       @click="x += 100"
     />
+    <arrow-nav :ways="ways" :offset="-x" />
   </div>
 </template>
 
 <script>
-import { preloadPanorama } from "@/Preloader.js";
+import Preloader, { preloadPanorama } from "@/Preloader.js";
+import ArrowNav from "@/components/ArrowNav.vue";
 
 export default {
+  components: { ArrowNav },
   data() {
-    return { x: 0 };
+    return { x: 0, ways: [] };
   },
   beforeRouteEnter(to, from, next) {
     if (to.meta.image) {
@@ -26,6 +29,14 @@ export default {
     } else {
       preloadPanorama(to).then(() => next());
     }
+  },
+  created() {
+    this.$route.meta.ways.forEach(way => {
+      var path = this.$route.name + "-" + way.destination;
+      var preloader = new Preloader(this.$router, path);
+      Object.assign(way, {path, preloader });
+      this.ways.push(way);
+    });
   }
 };
 </script>

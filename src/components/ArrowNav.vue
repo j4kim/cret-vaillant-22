@@ -8,7 +8,7 @@
         position: 'relative',
         bottom: '100px',
         margin: 'auto',
-        left: way.position + 'px',
+        left: offset + way.position + 'px',
         color: 'white',
         cursor: way.preloader.ready ? 'pointer': 'auto',
         width: '200px'
@@ -29,6 +29,6 @@
 
 <script>
 export default {
-  props: ['ways']
+  props: ['ways', 'offset']
 }
 </script>
