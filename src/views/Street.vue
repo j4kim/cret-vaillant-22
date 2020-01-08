@@ -1,17 +1,22 @@
 <template>
-  <div @click="$router.push('street-lounge')">
+  <div>
     <photo src="images/street-lounge/IMG_1341.jpg" />
-    <div>
-      <span v-if="ready">Ready</span>
-      <span v-else>{{ preloader.progress }}%</span>
-    </div>
+    <arrow-nav :ways="[{
+      position: 0,
+      path: 'street-lounge',
+      preloader,
+      label: 'Commencer la visite',
+      ready
+    }]" />
   </div>
 </template>
 
 <script>
 import Preloader from "@/Preloader.js";
+import ArrowNav from "@/components/ArrowNav.vue"
 
 export default {
+  components: { ArrowNav },
   data() {
     return {
       preloader: {},
