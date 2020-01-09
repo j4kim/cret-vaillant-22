@@ -10,7 +10,7 @@
       }"
       @click="x += 100"
     />
-    <arrow-nav :ways="ways" :offset="-x" :scale="scale" />
+    <arrow-nav :ways="$route.meta.ways" :offset="-x" :scale="scale" />
   </div>
 </template>
 
@@ -21,7 +21,7 @@ import ArrowNav from "@/components/ArrowNav.vue";
 export default {
   components: { ArrowNav },
   data() {
-    return { x: 0, ways: [], scale: 1 };
+    return { x: 0, scale: 1 };
   },
   beforeRouteEnter(to, from, next) {
     if (to.meta.image) {
@@ -29,13 +29,10 @@ export default {
     } else {
       preloadPanorama(to).then(() => next());
     }
-  },
-  created() {
-    (this.$route.meta.ways || []).forEach(way => {
-      var path = this.$route.name + "-" + way.destination;
-      var preloader = new Preloader(this.$router, path);
+    to.meta.ways.forEach(way => {
+      var path = to.name + "-" + way.destination;
+      var preloader = new Preloader(path);
       Object.assign(way, {path, preloader });
-      this.ways.push(way);
     });
   },
   beforeRouteLeave (to, from, next) {

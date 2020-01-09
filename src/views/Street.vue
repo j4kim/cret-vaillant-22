@@ -22,7 +22,7 @@ export default {
     };
   },
   created() {
-    this.preloader = new Preloader(this.$router, "street-lounge");
+    this.preloader = new Preloader("street-lounge");
   }
 };
 </script>

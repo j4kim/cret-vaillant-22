@@ -5,6 +5,8 @@ import Photo from "./components/Photo";
 
 Vue.component("photo", Photo);
 
+window.router = router;
+
 new Vue({
   router,
   render: h => h(App)

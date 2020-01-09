@@ -14,7 +14,7 @@ export function preloadPanorama(panoramaRoute) {
 }
 
 export default class Preloader {
-  constructor(router, pathRouteName) {
+  constructor(pathRouteName) {
     this.pathRoute = router.matcher.match(pathRouteName);
     this.pathRoute.meta.images = [];
     let destination = pathRouteName.split("-").pop();
