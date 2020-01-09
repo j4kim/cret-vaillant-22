@@ -179,7 +179,29 @@ export default new Router({
     {
       path: "/bathroom",
       name: "bathroom",
-      component: Panorama
+      component: Panorama,
+      meta: {
+        ways: [
+          {
+            position: 1150,
+            destination: "kitchen",
+            label: "Retourner à la cuisine"
+          }
+        ]
+      }
+    },
+    {
+      path: "/bathroom-kitchen",
+      name: "bathroom-kitchen",
+      component: Path,
+      meta: {
+        start: 1676,
+        stop: 1681,
+        destination: "kitchen",
+        computeFilename(i) {
+          return "IMG_" + i + ".JPG";
+        }
+      }
     },
     {
       path: "/garden",
