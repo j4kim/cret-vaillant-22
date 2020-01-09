@@ -88,13 +88,9 @@ html {
       margin: 0 auto;
     }
     h1 {
-      font-size: 3rem;
-      line-height: 3.5rem;
+      font-size: 2.5rem;
+      line-height: 3rem;
       break-inside: avoid;
-      @media screen and (min-width: 320px) {
-        font-size: 4rem;
-        line-height: 4.5rem;
-      }
       @media screen and (min-width: 500px) {
         font-size: 5rem;
         line-height: 5.5rem;
