@@ -20,6 +20,7 @@ export default class Preloader {
     this.panoramaRoute = router.matcher.match(this.pathRoute.meta.destination);
     this.loaded = 0;
     this.ready = false;
+    this.computeFilename = this.pathRoute.meta.computeFilename || this.defaultFilename;
     // start:1, stop:3, total:2+3-1=4 (1,2,3,panorama)
     this.total = 2 + this.pathRoute.meta.stop - this.pathRoute.meta.start;
     this.preload();
@@ -38,8 +39,12 @@ export default class Preloader {
     return Math.round((100 * this.loaded) / this.total);
   }
 
+  defaultFilename(i) {
+    return "IMG_" + i + ".jpg";
+  }
+
   getImageSource(i) {
-    let filename = "IMG_" + i + ".jpg";
+    let filename = this.computeFilename(i);
     return "images/" + this.pathRoute.name + "/" + filename;
   }
 

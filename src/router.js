@@ -52,7 +52,10 @@ export default new Router({
       meta: {
         start: 1478,
         stop: 1501,
-        destination: "bedroom"
+        destination: "bedroom",
+        computeFilename(i) {
+          return "IMG_" + i + ".JPG";
+        }
       }
     },
     {
@@ -62,7 +65,10 @@ export default new Router({
       meta: {
         start: 1614,
         stop: 1626,
-        destination: "kitchen"
+        destination: "kitchen",
+        computeFilename(i) {
+          return "IMG_" + i + ".JPG";
+        }
       }
     },
     {
