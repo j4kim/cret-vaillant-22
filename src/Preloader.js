@@ -45,7 +45,7 @@ export default class Preloader {
 
   getImageSource(i) {
     let filename = this.computeFilename(i);
-    return "images/" + this.pathRoute.name + "/" + filename;
+    return "images/paths/" + this.pathRoute.name + "/" + filename;
   }
 
   preloadPath() {
