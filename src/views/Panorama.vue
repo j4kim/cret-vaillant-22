@@ -38,6 +38,10 @@ export default {
       this.ways.push(way);
     });
   },
+  beforeRouteLeave (to, from, next) {
+    this.x = 0;
+    next();
+  },
   mounted() {
     this.computeScale();
     window.onresize = this.computeScale;
