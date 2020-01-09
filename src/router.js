@@ -123,6 +123,11 @@ export default new Router({
             position: -550,
             destination: "bathroom",
             label: "Aller à la salle de bain"
+          },
+          {
+            position: 1300,
+            destination: "bedroom",
+            label: "Aller dans la chambre"
           }
         ]
       }
@@ -135,6 +140,19 @@ export default new Router({
         start: 1627,
         stop: 1632,
         destination: "bathroom",
+        computeFilename(i) {
+          return "IMG_" + i + ".JPG";
+        }
+      }
+    },
+    {
+      path: "/kitchen-bedroom",
+      name: "kitchen-bedroom",
+      component: Path,
+      meta: {
+        start: 1596,
+        stop: 1607,
+        destination: "bedroom",
         computeFilename(i) {
           return "IMG_" + i + ".JPG";
         }
