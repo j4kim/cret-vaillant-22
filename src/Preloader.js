@@ -17,7 +17,8 @@ export default class Preloader {
   constructor(router, pathRouteName) {
     this.pathRoute = router.matcher.match(pathRouteName);
     this.pathRoute.meta.images = [];
-    this.panoramaRoute = router.matcher.match(this.pathRoute.meta.destination);
+    let destination = pathRouteName.split("-").pop();
+    this.panoramaRoute = router.matcher.match(destination);
     this.loaded = 0;
     this.ready = false;
     this.computeFilename = this.pathRoute.meta.computeFilename || this.defaultFilename;

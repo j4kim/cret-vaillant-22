@@ -22,8 +22,7 @@ export default new Router({
       component: Path,
       meta: {
         start: 1341,
-        stop: 1398,
-        destination: "lounge"
+        stop: 1398
       }
     },
     {
@@ -52,7 +51,6 @@ export default new Router({
       meta: {
         start: 1478,
         stop: 1501,
-        destination: "bedroom",
         computeFilename(i) {
           return "IMG_" + i + ".JPG";
         }
@@ -65,7 +63,6 @@ export default new Router({
       meta: {
         start: 1614,
         stop: 1626,
-        destination: "kitchen",
         computeFilename(i) {
           return "IMG_" + i + ".JPG";
         }
@@ -96,8 +93,7 @@ export default new Router({
       component: Path,
       meta: {
         start: 1542,
-        stop: 1561,
-        destination: "kitchen"
+        stop: 1561
       }
     },
     {
@@ -107,7 +103,6 @@ export default new Router({
       meta: {
         start: 1608,
         stop: 1613,
-        destination: "lounge",
         computeFilename(i) {
           return "IMG_" + i + ".JPG";
         }
@@ -144,7 +139,6 @@ export default new Router({
       meta: {
         start: 1627,
         stop: 1632,
-        destination: "bathroom",
         computeFilename(i) {
           return "IMG_" + i + ".JPG";
         }
@@ -157,7 +151,6 @@ export default new Router({
       meta: {
         start: 1596,
         stop: 1607,
-        destination: "bedroom",
         computeFilename(i) {
           return "IMG_" + i + ".JPG";
         }
@@ -170,7 +163,6 @@ export default new Router({
       meta: {
         start: 1680,
         stop: 1780,
-        destination: "garden",
         computeFilename(i) {
           return "IMG_" + i + ".JPG";
         }
@@ -197,7 +189,6 @@ export default new Router({
       meta: {
         start: 1676,
         stop: 1681,
-        destination: "kitchen",
         computeFilename(i) {
           return "IMG_" + i + ".JPG";
         }

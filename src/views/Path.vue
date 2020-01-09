@@ -31,7 +31,7 @@ export default {
         this.frame++;
         setTimeout(this.nextFrame, 100);
       } else {
-        this.$router.replace(this.$route.meta.destination);
+        this.$router.replace(this.$route.name.split("-").pop());
       }
     }
   },
