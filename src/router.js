@@ -74,7 +74,16 @@ export default new Router({
     {
       path: "/bedroom",
       name: "bedroom",
-      component: Panorama
+      component: Panorama,
+      meta: {
+        ways: [
+          {
+            position: 700,
+            destination: "kitchen",
+            label: "Aller à la cuisine"
+          }
+        ]
+      }
     },
     {
       path: "/bedroom-kitchen",
