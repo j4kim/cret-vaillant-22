@@ -114,6 +114,7 @@ html {
   }
   nav {
     display: flex;
+    justify-content: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
     font-size: 1.2rem;
@@ -136,7 +137,7 @@ html {
     text-align: center;
     background-color: #292d31;
     position: relative;
-    max-width: 100vh;
+    max-width: 100%;
     overflow: hidden;
   }
 }
