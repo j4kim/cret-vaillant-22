@@ -81,6 +81,11 @@ export default new Router({
             position: 700,
             destination: "kitchen",
             label: "Aller à la cuisine"
+          },
+          {
+            position: 1500,
+            destination: "lounge",
+            label: "Retourner au séjour"
           }
         ]
       }
@@ -93,6 +98,19 @@ export default new Router({
         start: 1542,
         stop: 1561,
         destination: "kitchen"
+      }
+    },
+    {
+      path: "/bedroom-lounge",
+      name: "bedroom-lounge",
+      component: Path,
+      meta: {
+        start: 1608,
+        stop: 1613,
+        destination: "lounge",
+        computeFilename(i) {
+          return "IMG_" + i + ".JPG";
+        }
       }
     },
     {
