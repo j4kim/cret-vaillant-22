@@ -93,11 +93,13 @@ export default new Router({
     },
     {
       path: "/bathroom",
-      name: "bathroom"
+      name: "bathroom",
+      component: Panorama
     },
     {
       path: "/garden",
-      name: "garden"
+      name: "garden",
+      component: Panorama
     }
   ]
 });
