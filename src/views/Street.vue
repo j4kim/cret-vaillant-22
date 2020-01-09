@@ -1,6 +1,6 @@
 <template>
   <div>
-    <photo src="images/street-lounge/IMG_1341.jpg" />
+    <photo src="images/paths/street-lounge/IMG_1341.jpg" />
     <arrow-nav :ways="[{
       position: 0,
       path: 'street-lounge',
