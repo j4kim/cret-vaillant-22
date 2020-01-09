@@ -31,7 +31,7 @@ export default {
     }
   },
   created() {
-    this.$route.meta.ways.forEach(way => {
+    (this.$route.meta.ways || []).forEach(way => {
       var path = this.$route.name + "-" + way.destination;
       var preloader = new Preloader(this.$router, path);
       Object.assign(way, {path, preloader });
