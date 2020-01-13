@@ -14,11 +14,11 @@
         width: '200px'
       }">
       <svg width="50" height="50">
-        <linearGradient id="grad">
+        <linearGradient :id="'grad' + way.path">
           <stop :offset="way.preloader.progress + '%'" stop-color="rgba(255,255,255,0.8)"/>
           <stop :offset="way.preloader.progress + '%'" stop-color="rgba(255,255,255,0.3)"/>
         </linearGradient>
-        <polygon points="0,50 25,15 50,50" fill="url(#grad)"/>
+        <polygon points="0,50 25,15 50,50" :fill="'url(#grad' + way.path + ')'"/>
       </svg>
       <div v-if="way.preloader.ready">
         {{ way.label }}
