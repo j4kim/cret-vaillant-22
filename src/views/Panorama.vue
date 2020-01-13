@@ -36,12 +36,10 @@ export default {
   },
   beforeRouteLeave (to, from, next) {
     this.x = 0;
-    if (to.meta.ways) {
-      // init ways on next route
-      // in case of same component navigation
-      // we can't use beforeRouteEnter bc it has no access to this
-      this.initWays(to);
-    } 
+    // init ways on next route
+    // in case of same component navigation
+    // we can't use beforeRouteEnter bc it has no access to this
+    this.initWays(to);
     next();
   },
   mounted() {
@@ -54,12 +52,14 @@ export default {
     },
     initWays(route) {
       this.ways = [];
-      (route.meta.ways || []).forEach(way => {
-        var path = route.name + "-" + way.destination;
-        var preloader = new Preloader(this.$router, path);
-        Object.assign(way, {path, preloader });
-        this.ways.push(way);
-      });
+      if (route.meta.ways) {
+        route.meta.ways.forEach(way => {
+          var path = route.name + "-" + way.destination;
+          var preloader = new Preloader(this.$router, path);
+          Object.assign(way, {path, preloader });
+          this.ways.push(way);
+        });
+      } 
     }
   }
 };
