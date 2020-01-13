@@ -2,11 +2,11 @@
   <div
     :style="{
       position: 'absolute',
-      height: '50px',
-      width: '50px',
-      left: left ? '0' : '',
-      right: left ? '' : '0',
-      top: 'calc(50% - ' + 25 * scale + 'px)',
+      height: '100%',
+      width: '25%',
+      top: 0,
+      left: left ? 0 : '',
+      right: left ? '' : 0,
       cursor: 'pointer'
     }"
     @click="$emit('click')"
@@ -15,6 +15,10 @@
       width="50"
       height="50"
       :style="{
+        position: 'absolute',
+        left: left ? 0 : '',
+        right: left ? '' : 0,
+        top: 'calc(50% - ' + 25 * scale + 'px)',
         transform:
           'scale(' + minscale + ') rotate(' + (left ? -90 : 90) + 'deg)',
         transformOrigin: 'center'
