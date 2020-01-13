@@ -8,7 +8,7 @@
         backgroundPosition: 'calc(50% - ' + x + 'px) center',
         userSelect: 'none'
       }"
-      @click="x += 100"
+      @click="slice += 1"
     />
     <arrow-nav :ways="ways" :offset="-x" :scale="scale" />
   </div>
@@ -21,7 +21,7 @@ import ArrowNav from "@/components/ArrowNav.vue";
 export default {
   components: { ArrowNav },
   data() {
-    return { x: 0, ways: [], scale: 1 };
+    return { ways: [], scale: 1, slice: 0, slices: 12 };
   },
   beforeRouteEnter(to, from, next) {
     if (to.meta.image) {
@@ -35,7 +35,7 @@ export default {
     this.initWays(this.$route);
   },
   beforeRouteLeave(to, from, next) {
-    this.x = 0;
+    this.slice = 0;
     // init ways on next route
     // in case of same component navigation
     // we can't use beforeRouteEnter bc it has no access to this
@@ -45,6 +45,14 @@ export default {
   mounted() {
     this.computeScale();
     window.onresize = this.computeScale;
+  },
+  computed: {
+    sliceWidth() {
+      return this.$route.meta.image.naturalWidth * this.scale / this.slices
+    },
+    x() {
+      return (this.slice % this.slices) * this.sliceWidth;
+    }
   },
   methods: {
     computeScale() {
