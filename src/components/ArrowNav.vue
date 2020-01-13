@@ -23,6 +23,9 @@
       <div v-if="way.preloader.ready">
         {{ way.label }}
       </div>
+      <div v-else>
+        {{ way.preloader.progress }}%
+      </div>
     </div>
   </div>
 </template>
