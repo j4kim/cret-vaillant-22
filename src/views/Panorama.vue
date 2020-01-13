@@ -19,8 +19,8 @@ import Preloader, { preloadPanorama } from "@/Preloader.js";
 import ArrowNav from "@/components/ArrowNav.vue";
 import SideArrow from "@/components/SideArrow.vue";
 
-function mod(a, b){
-  return (a % b + b) % b;
+function mod(a, b) {
+  return ((a % b) + b) % b;
 }
 
 export default {
