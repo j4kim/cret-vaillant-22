@@ -125,6 +125,11 @@ export default new Router({
             label: "Aller à la salle de bain"
           },
           {
+            position: 2800,
+            destination: "bathroom",
+            label: "Aller à la salle de bain"
+          },
+          {
             position: 500,
             destination: "garden",
             label: "Aller au jardin"
