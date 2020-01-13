@@ -31,15 +31,17 @@ export default {
     }
   },
   created() {
-    (this.$route.meta.ways || []).forEach(way => {
-      var path = this.$route.name + "-" + way.destination;
-      var preloader = new Preloader(this.$router, path);
-      Object.assign(way, {path, preloader });
-      this.ways.push(way);
-    });
+    // init ways on current route
+    this.initWays(this.$route);
   },
   beforeRouteLeave (to, from, next) {
     this.x = 0;
+    if (to.meta.ways) {
+      // init ways on next route
+      // in case of same component navigation
+      // we can't use beforeRouteEnter bc it has no access to this
+      this.initWays(to);
+    } 
     next();
   },
   mounted() {
@@ -49,6 +51,15 @@ export default {
   methods: {
     computeScale() {
       this.scale = this.$el.clientHeight / this.$route.meta.image.naturalHeight;
+    },
+    initWays(route) {
+      this.ways = [];
+      (route.meta.ways || []).forEach(way => {
+        var path = route.name + "-" + way.destination;
+        var preloader = new Preloader(this.$router, path);
+        Object.assign(way, {path, preloader });
+        this.ways.push(way);
+      });
     }
   }
 };
