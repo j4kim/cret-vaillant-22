@@ -62,10 +62,12 @@ export default {
   computed: {
     view() {
       let view = this.views.find(v => v.name === this.$route.name);
-      return view ? view : {
-        content: "Cliquez l'image pour passer l'animation",
-        title: this.$route.meta.title
-      };
+      return view
+        ? view
+        : {
+            content: "Cliquez l'image pour passer l'animation",
+            title: this.$route.meta.title
+          };
     }
   }
 };

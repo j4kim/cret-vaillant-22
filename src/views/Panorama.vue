@@ -48,7 +48,7 @@ export default {
   },
   computed: {
     sliceWidth() {
-      return this.$route.meta.image.naturalWidth * this.scale / this.slices
+      return (this.$route.meta.image.naturalWidth * this.scale) / this.slices;
     },
     x() {
       return (this.slice % this.slices) * this.sliceWidth;
