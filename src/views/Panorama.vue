@@ -5,8 +5,7 @@
         backgroundImage: 'url(' + $route.meta.image.src + ')',
         height: '100%',
         backgroundSize: 'auto 100%',
-        backgroundPosition: 'calc(50% - ' + x + 'px) center',
-        userSelect: 'none'
+        backgroundPosition: 'calc(50% - ' + x + 'px) center'
       }"
     />
     <side-arrow :left="true" :scale="scale" @click="slice -= 1" />

@@ -7,7 +7,8 @@
       top: 0,
       left: left ? 0 : '',
       right: left ? '' : 0,
-      cursor: 'pointer'
+      cursor: 'pointer',
+      userSelect: 'none'
     }"
     @click="$emit('click')"
   >
