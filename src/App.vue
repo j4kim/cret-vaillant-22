@@ -109,7 +109,7 @@ html {
     background-color: #515354;
     color: white;
   }
-  .view-content{
+  .view-content {
     min-height: 170px;
   }
   nav {

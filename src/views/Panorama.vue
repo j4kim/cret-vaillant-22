@@ -34,7 +34,7 @@ export default {
     // init ways on current route
     this.initWays(this.$route);
   },
-  beforeRouteLeave (to, from, next) {
+  beforeRouteLeave(to, from, next) {
     this.x = 0;
     // init ways on next route
     // in case of same component navigation
@@ -56,10 +56,10 @@ export default {
         route.meta.ways.forEach(way => {
           var path = route.name + "-" + way.destination;
           var preloader = new Preloader(this.$router, path);
-          Object.assign(way, {path, preloader });
+          Object.assign(way, { path, preloader });
           this.ways.push(way);
         });
-      } 
+      }
     }
   }
 };
