@@ -21,6 +21,7 @@ export default new Router({
       name: "street-lounge",
       component: Path,
       meta: {
+        title: "En direction du séjour...",
         start: 1341,
         stop: 1398
       }
@@ -49,6 +50,7 @@ export default new Router({
       name: "lounge-bedroom",
       component: Path,
       meta: {
+        title: "En direction de la chambre...",
         start: 1478,
         stop: 1501,
         computeFilename(i) {
@@ -61,6 +63,7 @@ export default new Router({
       name: "lounge-kitchen",
       component: Path,
       meta: {
+        title: "En direction de la cuisine...",
         start: 1614,
         stop: 1626,
         computeFilename(i) {
@@ -92,6 +95,7 @@ export default new Router({
       name: "bedroom-kitchen",
       component: Path,
       meta: {
+        title: "En direction de la cuisine...",
         start: 1542,
         stop: 1561
       }
@@ -101,6 +105,7 @@ export default new Router({
       name: "bedroom-lounge",
       component: Path,
       meta: {
+        title: "En direction du séjour...",
         start: 1608,
         stop: 1613,
         computeFilename(i) {
@@ -137,6 +142,7 @@ export default new Router({
       name: "kitchen-bathroom",
       component: Path,
       meta: {
+        title: "En direction de la salle de bain...",
         start: 1627,
         stop: 1632,
         computeFilename(i) {
@@ -149,6 +155,7 @@ export default new Router({
       name: "kitchen-bedroom",
       component: Path,
       meta: {
+        title: "En direction de la chambre...",
         start: 1596,
         stop: 1607,
         computeFilename(i) {
@@ -161,6 +168,7 @@ export default new Router({
       name: "kitchen-garden",
       component: Path,
       meta: {
+        title: "En direction du jardin...",
         start: 1680,
         stop: 1780,
         computeFilename(i) {
@@ -187,6 +195,7 @@ export default new Router({
       name: "bathroom-kitchen",
       component: Path,
       meta: {
+        title: "En direction de la cuisine...",
         start: 1676,
         stop: 1681,
         computeFilename(i) {

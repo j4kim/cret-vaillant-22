@@ -16,7 +16,7 @@
       </div>
     </nav>
     <router-view class="interactive-view" />
-    <div class="dark">
+    <div class="dark view-content">
       <div class="content">
         <h2 class="title">{{ view.title }}</h2>
         <div v-html="view.content" />
@@ -61,7 +61,8 @@ export default {
   },
   computed: {
     view() {
-      return this.views.find(v => v.name === this.$route.name) || {};
+      let view = this.views.find(v => v.name === this.$route.name);
+      return view ? view : this.$route.meta;
     }
   }
 };
@@ -107,6 +108,9 @@ html {
   .dark {
     background-color: #515354;
     color: white;
+  }
+  .view-content{
+    min-height: 170px;
   }
   nav {
     display: flex;
