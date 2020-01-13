@@ -20,11 +20,15 @@
         </linearGradient>
         <polygon points="0,50 25,15 50,50" :fill="'url(#grad' + way.path + ')'"/>
       </svg>
-      <div v-if="way.preloader.ready">
+      <div :style="{
+        textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
+      }">
+        <span v-if="way.preloader.ready">
         {{ way.label }}
-      </div>
-      <div v-else>
+        </span>
+        <span v-else>
         {{ way.preloader.progress }}%
+        </span>
       </div>
     </div>
   </div>
