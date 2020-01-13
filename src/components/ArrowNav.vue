@@ -2,7 +2,7 @@
   <div>
     <div
       v-for="way in ways"
-      :key="way.path"
+      :key="way.path + way.position"
       @click="way.preloader.ready ? $router.push(way.path) : undefined"
       :style="{
         position: 'absolute',
