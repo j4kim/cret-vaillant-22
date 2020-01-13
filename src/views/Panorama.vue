@@ -19,6 +19,10 @@ import Preloader, { preloadPanorama } from "@/Preloader.js";
 import ArrowNav from "@/components/ArrowNav.vue";
 import SideArrow from "@/components/SideArrow.vue";
 
+function mod(a, b){
+  return (a % b + b) % b;
+}
+
 export default {
   components: { ArrowNav, SideArrow },
   data() {
@@ -51,8 +55,11 @@ export default {
     sliceWidth() {
       return (this.$route.meta.image.naturalWidth * this.scale) / this.slices;
     },
+    realSlice() {
+      return mod(this.slice, this.slices);
+    },
     x() {
-      return (this.slice % this.slices) * this.sliceWidth;
+      return this.realSlice * this.sliceWidth;
     }
   },
   methods: {
