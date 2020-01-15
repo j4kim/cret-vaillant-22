@@ -50,8 +50,21 @@ export default {
   mounted() {
     this.computeScale();
     window.onresize = this.computeScale;
+    onkeydown = e => {
+      if (e.keyCode === 38 && this.way) {
+        this.$router.push(this.way.path)
+      } else {
+        this.slice += { 37: -1, 39: 1 }[e.keyCode] || 0;
+      }
+    }
   },
   computed: {
+    way() {
+      this.ways.forEach(way => {
+        way.diff = Math.abs(way.position * this.scale - this.x);
+      })
+      return this.ways.find(way => way.diff < 200);
+    },
     sliceWidth() {
       return (this.$route.meta.image.naturalWidth * this.scale) / this.slices;
     },
