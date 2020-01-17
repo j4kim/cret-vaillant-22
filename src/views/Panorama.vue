@@ -52,17 +52,18 @@ export default {
     window.onresize = this.computeScale;
     onkeydown = e => {
       if (e.keyCode === 38 && this.way) {
-        this.$router.push(this.way.path)
+        this.$router.push(this.way.path);
       } else {
         this.slice += { 37: -1, 39: 1 }[e.keyCode] || 0;
       }
-    }
+      return false;
+    };
   },
   computed: {
     way() {
       this.ways.forEach(way => {
         way.diff = Math.abs(way.position * this.scale - this.x);
-      })
+      });
       return this.ways.find(way => way.diff < 200);
     },
     sliceWidth() {
