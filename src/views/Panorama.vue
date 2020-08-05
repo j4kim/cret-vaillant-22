@@ -8,9 +8,9 @@
         backgroundPosition: 'calc(50% - ' + x + 'px) center'
       }"
     />
+    <arrow-nav :ways="ways" :offset="-x" :scale="scale" />
     <side-arrow :left="true" :scale="scale" @click="slice -= 1" />
     <side-arrow :left="false" :scale="scale" @click="slice += 1" />
-    <arrow-nav :ways="ways" :offset="-x" :scale="scale" />
   </div>
 </template>
 
