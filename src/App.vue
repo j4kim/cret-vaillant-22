@@ -144,6 +144,7 @@ html {
     position: relative;
     max-width: 100%;
     overflow: hidden;
+    touch-action: manipulation;
   }
 }
 </style>
