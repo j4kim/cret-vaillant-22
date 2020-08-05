@@ -3,7 +3,7 @@
     :style="{
       position: 'absolute',
       height: '100%',
-      width: '25%',
+      width: '20%',
       top: 0,
       left: left ? 0 : '',
       right: left ? '' : 0,
