@@ -76,7 +76,7 @@ Lors de la création d'un compte, on peut l'affecter au nouveau groupe `author`.
 
 #### Archives des données
 
-[Cette archive](production_cockpit_config_and_storage_2020-08-05.zip) contient les données des dossier `storage` et `config` en production. Ils peuvent être copiés dans le dossier cockpit pour être dans la même configuration qu'en production.
+L'archive [production_cockpit_config_and_storage_2020-08-05.zip](production_cockpit_config_and_storage_2020-08-05.zip) contient les données des dossier `storage` et `config` en production. Ils peuvent être copiés dans le dossier cockpit pour être dans la même configuration qu'en production.
 
 ## Déploiement
 
