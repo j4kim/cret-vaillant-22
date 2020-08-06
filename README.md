@@ -35,18 +35,18 @@ S'authentifier avec admin/admin.
 
 ### Structure de données
 
-  singletons
-    welcome
-      title: Text
-      content: Wysiwyg
-    contact
-      content: Wysiwyg
-  collections
-    views
-      name: Text
-      label: Text
-      title: Text
-      content: Wysiwyg
+    singletons
+      welcome
+        title: Text
+        content: Wysiwyg
+      contact
+        content: Wysiwyg
+    collections
+      views
+        name: Text
+        label: Text
+        title: Text
+        content: Wysiwyg
 
 Pour rendre les données publiques par l'API, à l'édition d'un singleton ou d'une collection, aller dans le menu Permissions et cliquer le switch correspondant.
 
