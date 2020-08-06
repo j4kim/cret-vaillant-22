@@ -6,3 +6,11 @@ L'application originale, réalisée en 2012, est écrite en Flash. Le but est de
 
 * Version flash: https://cret-vaillant.ch/22/old/
 * Cette version: https://cret-vaillant.ch/22/
+
+## Développement
+
+php -S localhost:1234 -t cockpit
+
+Dans un autre terminal:
+
+npm run serve
