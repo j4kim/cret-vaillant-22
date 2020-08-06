@@ -52,7 +52,27 @@ Pour rendre les données publiques par l'API, à l'édition d'un singleton ou d'
 
 ### Gestion des utilisateurs
 
-todo
+#### Création d'un groupe author
+
+Depuis la page settings, créer un fichier de configuration. Attention: cela crée un fichier yaml alors que la configuration d'exemple dans [la doc](https://getcockpit.com/documentation/reference/configuration) est php.
+
+Pour créer un groupe "author":
+
+```yaml
+groups:
+  author:
+    $admin: false
+    cockpit:
+      backend: true
+```
+
+### Modifier les permissions sur les objets
+
+Une fois le groupe configuré, il faut encore aller dans les permissions des singletons et collections pour lui autoriser les accès.
+
+#### Ajout d'utilisateur au groupe
+
+Lors de la création d'un compte, on peut l'affecter au nouveau groupe `author`.
 
 ### Archives des données
 
