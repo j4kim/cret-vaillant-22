@@ -66,7 +66,7 @@ groups:
       backend: true
 ```
 
-### Modifier les permissions sur les objets
+#### Modifier les permissions sur les objets
 
 Une fois le groupe configuré, il faut encore aller dans les permissions des singletons et collections pour lui autoriser les accès.
 
@@ -74,7 +74,7 @@ Une fois le groupe configuré, il faut encore aller dans les permissions des sin
 
 Lors de la création d'un compte, on peut l'affecter au nouveau groupe `author`.
 
-### Archives des données
+#### Archives des données
 
 [Cette archive](production_cockpit_config_and_storage_2020-08-05.zip) contient les données des dossier `storage` et `config` en production. Ils peuvent être copiés dans le dossier cockpit pour être dans la même configuration qu'en production.
 
@@ -85,6 +85,6 @@ Compilation:
 npm run build
 ```
 
-Puis charger le contenu du dossier `dist` dans qqch comme `web/cret-vaillant/22/`
+Puis charger le contenu du dossier `dist` dans `/web/cret-vaillant/22`
 
 Cockpit est déjà en production dans le même dossier.
